@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>高速生徒の顔マスター 名前編</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    #logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    #feedback {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <img id="logo" src="logo.png" alt="ロゴ">
+
+  <div class="mode-selection">
+    <h2>モード選択</h2>
+    <button onclick="startIntroMode()">導入モード</button>
+    <button onclick="startGame('practice')">練習モード</button>
+    <button onclick="startGame('test')">テストモード</button>
+  </div>
+
+  <!-- 導入モード画面 -->
+  <div id="intro" class="hidden">
+    <h2>この人は誰だろう？</h2>
+    <img id="intro-image" src="" alt="intro">
+    <h3 id="intro-name" class="hidden"></h3>
+    <button onclick="nextIntro()">次へ</button>
+  </div>
+
+  <!-- クイズ画面 -->
+  <div id="quiz" class="hidden">
+    <h3 id="question-counter"></h3>
+    <img id="quiz-image" src="" alt="quiz">
+    <p><input type="text" id="answer" placeholder="名前を入力してね"></p>
+    <p><button onclick="submitAnswer()">回答</button></p>
+    <p id="timer">残り時間: 10秒</p>
+    <p id="feedback"></p>
+  </div>
+
+  <!-- 結果画面 -->
+<div id="result" class="hidden">
+    <h2>結果</h2>
+    <p id="score"></p>
+    
+    <p>名前を入力してランキングに登録しよう！</p>
+    <input type="text" id="player-name" placeholder="名前を入力">
+    <button onclick="submitRanking()">ランキングに登録</button>
+    
+    <button onclick="location.reload()">もう一度</button>
+  
+    <h3>ランキング</h3>
+    <ol id="ranking"></ol>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
